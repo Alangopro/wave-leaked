@@ -1,47 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Checking your browser...</title>
-    <link rel="shortcut icon" href="img/Favicon.ico" type="image/x-icon">
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Apex Executor Free Download</title>
+<style>
+  body {
+    margin: 0; 
+    background: #111;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+  .container {
+    text-align: center;
+    max-width: 400px;
+  }
+  h1 {
+    margin-bottom: 10px;
+  }
+  input[type="text"] {
+    padding: 10px;
+    width: 100%;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 15px;
+  }
+  button {
+    padding: 12px 20px;
+    font-size: 1rem;
+    background: #0f62fe;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+  }
+  button:hover {
+    background: #0353e9;
+  }
+  #message {
+    margin-top: 10px;
+    height: 20px;
+  }
+
+  /* Jumpscare styles */
+  #jumpscare {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: black;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    flex-direction: column;
+  }
+  #jumpscare img, #jumpscare video {
+    max-width: 90vw;
+    max-height: 90vh;
+  }
+</style>
 </head>
-
 <body>
-    <div class="container-video" id="container-video">
-        <video class="video" id="video" autoplay muted loop>
-            <source src="vid/video.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-        </video>
-    </div>
 
-    <div class="container" id="container">
-        <img class="gif" src="img/dots.gif" alt="Dots">
-        <h2 class="text">Checking your browser before accessing attachment.</h2>
-        <p class="text">This process is automatic. Your browser will redirect to your requested content shortly.</p>
-        <p class="text-captcha" id="text-captcha">Please enter captcha</p>
-        <div class="counter" id="counter">3</div>
-        <div class="recaptcha-container" id="recaptcha-container">
-            <div class="button-container">
-                <div class="button" id="button" onclick="showVideo()"></div>
-            </div>
-            <div class="text-container">
-                <p>I'm not a robot</p>
-            </div>
-            <div class="image-container">
-                <img src="img/RecaptchaLogo.png" alt="Recaptcha">
-                <p>Privacy - Terms</p>
-            </div>
-        </div>
-        <a class="link" href="https://github.com/Pablo-Restrepo/Troll-Page-Scream">DDoS protection by
-            Cloudflare</a>
-        <p>Ray ID: 348759h65g34h</p>
-    </div>
+<div class="container" id="main">
+  <h1>Apex Executor Free Download</h1>
+  <p>Enter your Roblox key to unlock the executor:</p>
+  <input type="text" id="keyInput" placeholder="Enter your key here" autocomplete="off" />
+  <button onclick="checkKey()">Unlock</button>
+  <div id="message"></div>
+</div>
+
+<div id="jumpscare">
+  <video id="scareVideo" autoplay muted>
+    <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" type="video/webm">
+    Your browser does not support the video tag.
+  </video>
+  <img id="scareImg" src="https://i.imgur.com/OJkaVOF.jpg" alt="Jumpscare" style="display:none;"/>
+</div>
+
+<script>
+  const validKeys = ["roblox123", "apexfree", "executor2025"]; // Fake valid keys
+
+  function checkKey() {
+    const input = document.getElementById("keyInput").value.trim().toLowerCase();
+    const message = document.getElementById("message");
+    if (validKeys.includes(input)) {
+      message.style.color = "lime";
+      message.textContent = "Key accepted! Preparing your download...";
+      setTimeout(() => {
+        startJumpscare();
+      }, 1500);
+    } else {
+      message.style.color = "red";
+      message.textContent = "Invalid key! Please try again.";
+    }
+  }
+
+  function startJumpscare() {
+    const jumpscare = document.getElementById("jumpscare");
+    const main = document.getElementById("main");
+    main.style.display = "none";
+    jumpscare.style.display = "flex";
+
+    // Play loud scary sound
+    const audio = new Audio("https://cdn.pixabay.com/download/audio/2022/03/15/audio_34a0eb7205.mp3?filename=scary-sound-7393.mp3");
+    audio.volume = 1;
+    audio.play();
+
+    // Show scary image after video ends
+    const video = document.getElementById("scareVideo");
+    video.muted = false;
+    video.play();
+
+    video.onended = () => {
+      video.style.display = "none";
+      document.getElementById("scareImg").style.display = "block";
+      // Repeat scary sound
+      audio.play();
+    }
+  }
+</script>
+
 </body>
-
-<script src="main.js"></script>
-
 </html>
