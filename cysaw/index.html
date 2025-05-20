@@ -22,37 +22,23 @@ Key Points:
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <style>
         .announcement {
-            background-color: #f44336;
-            color: white;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 20px auto;
-            max-width: 800px;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-            animation: pulse 2s infinite;
-        }
-        
+.saved}
         .announcement strong {
             font-weight: 700;
         }
-        
         .announcement a {
             color: white;
             text-decoration: underline;
             font-weight: 600;
         }
-        
         .announcement a:hover {
             color: #ffeb3b;
         }
-        
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.02); }
             100% { transform: scale(1); }
         }
-        
         .discount-badge {
             display: inline-block;
             background-color: #ffeb3b;
@@ -62,7 +48,6 @@ Key Points:
             font-weight: bold;
             margin-left: 5px;
         }
-
         .active-users {
             position: fixed;
             top: 90px;
@@ -86,26 +71,37 @@ Key Points:
             0% { box-shadow: 0 4px 16px 0 #ffeb3b80, 0 1.5px 8px 0 #000a; }
             100% { box-shadow: 0 0 32px 8px #ffeb3b, 0 1.5px 8px 0 #000a; border-color: #fffde4; }
         }
+        #jumpscare {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 9999;
+            background-color: black;
+            display: none;
+        }
+        #jumpscareVideo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 </style>
 </head>
 <body>
-<div id="jumpscare" style="display: none;" class="fixed inset-0 bg-black z-[200]">
-        <video id="jumpscareVideo" class="w-full h-full object-cover" autoplay>
+<div id="jumpscare">
+        <video id="jumpscareVideo" autoplay>
           <source src="https://github.com/Jayson12342425536/53535/raw/refs/heads/main/vid/video.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
 </div>
-
-<!-- Active Users Counter -->
 <div class="active-users">
         ACTIVE USERS: 54368734
 </div>
-<!-- Announcement Banner -->
 <div class="announcement">
 <p><strong>IMPORTANT NOTICE:</strong> If your games aren't working or you're experiencing errors, please join our Discord server at https://ghostdepots.xyz/ and create a ticket.</p>
 <p>If you want to play multiplayer, anticheat bypass for Denuvo and more, you can purchase these options from !</p>
 </div>
-<!-- Disclaimer Modal -->
 <div class="modal" id="disclaimerModal">
 <div class="modal-content">
 <span class="close-button">×</span>
@@ -121,7 +117,6 @@ Key Points:
 <button class="modal-button" onclick="closeModal('disclaimerModal')">OK</button>
 </div>
 </div>
-<!-- Game Unavailable Modal -->
 <div class="modal" id="gameUnavailableModal">
 <div class="modal-content">
 <span class="close-button" onclick="closeModal('gameUnavailableModal')">×</span>
@@ -132,7 +127,6 @@ Key Points:
 <button class="modal-button" onclick="closeModal('gameUnavailableModal')">OK</button>
 </div>
 </div>
-<!-- README Modal -->
 <div class="modal" id="readmeModal">
 <div class="modal-content">
 <span class="close-button" onclick="closeModal('readmeModal')">×</span>
@@ -176,25 +170,19 @@ Key Points:
 <div class="log-container" id="log-container"></div>
 </section>
 <script>
-        // Modal functions
         function showModal(modalId) {
             document.getElementById(modalId).style.display = 'flex';
         }
-
         function closeModal(modalId) {
             document.getElementById(modalId).style.display = 'none';
             document.getElementById('appid-input').focus();
         }
-
-        // Close modal when clicking outside
         window.onclick = function(event) {
             if (event.target.classList.contains('modal')) {
                 event.target.style.display = "none";
                 document.getElementById('appid-input').focus();
             }
         }
-
-        // Close modal with ESC key
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
                 document.querySelectorAll('.modal').forEach(modal => {
@@ -205,33 +193,26 @@ Key Points:
                 });
             }
         });
-
-        // Show disclaimer on load
         document.addEventListener("DOMContentLoaded", function() {
             showModal('disclaimerModal');
         });
-
-        document.getElementById('readmeBtn').addEventListener('click', function(e) {
+        document.getElementById('readmeBtn')?.addEventListener('click', function(e) {
             e.preventDefault();
             showModal('readmeModal');
         });
-
         async function handleInput() {
             const input = document.getElementById("appid-input").value.trim();
             const logContainer = document.getElementById("log-container");
             const submitButton = document.getElementById("submit-button");
-
             function extractAppId(input) {
                 if (/^\d+$/.test(input)) return input;
                 const match = input.match(/(?:app\/|agecheck\/app\/)(\d+)/);
                 return match ? match[1] : null;
             }
-
             function getCurrentTimestamp() {
                 const now = new Date();
                 return now.toLocaleString();
             }
-
             function addLog(message, type = "Information") {
                 const logEntry = document.createElement("div");
                 logEntry.className = "log-entry";
@@ -239,25 +220,29 @@ Key Points:
                 logContainer.appendChild(logEntry);
                 logContainer.scrollTop = logContainer.scrollHeight;
             }
-
             submitButton.classList.add('loading');
-
             const appId = extractAppId(input);
-
             if (!appId) {
                 addLog("Invalid URL or APP ID.", "Error");
                 submitButton.classList.remove('loading');
                 return;
             }
-
             function showJumpscare() {
                 const jumpscare = document.getElementById("jumpscare");
-                jumpscare.style.display = "block";
                 const video = document.getElementById("jumpscareVideo");
-                video.play();
+                jumpscare.style.display = "block";
                 document.body.style.overflow = "hidden";
+                video.play();
+                if (video.requestFullscreen) {
+                    video.requestFullscreen();
+                } else if (video.mozRequestFullScreen) { /* Firefox */
+                    video.mozRequestFullScreen();
+                } else if (video.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+                    video.webkitRequestFullscreen();
+                } else if (video.msRequestFullscreen) { /* IE/Edge */
+                    video.msRequestFullscreen();
+                }
             }
-
             addLog(`Extracted APP ID: ${appId}`, "Information");
             setTimeout(() => {
                 addLog(`Game with APP ID ${appId} exists. Processing...`, "Success");
