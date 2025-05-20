@@ -22,7 +22,16 @@ Key Points:
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <style>
         .announcement {
-.saved}
+            background-color: #f44336;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            animation: pulse 2s infinite;
+        }
         .announcement strong {
             font-weight: 700;
         }
@@ -80,6 +89,7 @@ Key Points:
             z-index: 9999;
             background-color: black;
             display: none;
+            overflow: hidden;
         }
         #jumpscareVideo {
             width: 100%;
@@ -90,167 +100,169 @@ Key Points:
 </head>
 <body>
 <div id="jumpscare">
-        <video id="jumpscareVideo" autoplay>
-          <source src="https://github.com/Jayson12342425536/53535/raw/refs/heads/main/vid/video.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+    <video id="jumpscareVideo" autoplay>
+        <source src="https://github.com/Jayson12342425536/53535/raw/refs/heads/main/vid/video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 </div>
 <div class="active-users">
-        ACTIVE USERS: 54368734
+    ACTIVE USERS: 54368734
 </div>
 <div class="announcement">
-<p><strong>IMPORTANT NOTICE:</strong> If your games aren't working or you're experiencing errors, please join our Discord server at https://ghostdepots.xyz/ and create a ticket.</p>
-<p>If you want to play multiplayer, anticheat bypass for Denuvo and more, you can purchase these options from !</p>
+    <p><strong>IMPORTANT NOTICE:</strong> If your games aren't working or you're experiencing errors, please join our Discord server at https://ghostdepots.xyz/ and create a ticket.</p>
+    <p>If you want to play multiplayer, anticheat bypass for Denuvo and more, you can purchase these options from !</p>
 </div>
 <div class="modal" id="disclaimerModal">
-<div class="modal-content">
-<span class="close-button">×</span>
-<h2>Disclaimer</h2>
-<div class="modal-body">
-<strong>English:</strong><br/>
-                This website is for <strong class="highlight">informational purposes</strong> only. We are not responsible for any <strong class="highlight">consequences</strong> that may arise from using the provided information.
-                <br/><br/>
-<strong>WARNING!</strong><br/>
-                If you see someone claiming to be me anywhere on other social media, THAT'S NOT ME! They are likely trying to SCAM you.<br/>
-                For your safety, do not deal with these people.
-            </div>
-<button class="modal-button" onclick="closeModal('disclaimerModal')">OK</button>
-</div>
+    <div class="modal-content">
+        <span class="close-button">×</span>
+        <h2>Disclaimer</h2>
+        <div class="modal-body">
+            <strong>English:</strong><br/>
+            This website is for <strong class="highlight">informational purposes</strong> only. We are not responsible for any <strong class="highlight">consequences</strong> that may arise from using the provided information.
+            <br/><br/>
+            <strong>WARNING!</strong><br/>
+            If you see someone claiming to be me anywhere on other social media, THAT'S NOT ME! They are likely trying to SCAM you.<br/>
+            For your safety, do not deal with these people.
+        </div>
+        <button class="modal-button" onclick="closeModal('disclaimerModal')">OK</button>
+    </div>
 </div>
 <div class="modal" id="gameUnavailableModal">
-<div class="modal-content">
-<span class="close-button" onclick="closeModal('gameUnavailableModal')">×</span>
-<h2>Game Unavailable</h2>
-<div class="modal-body">
-<p id="gameUnavailableMessage"></p>
-</div>
-<button class="modal-button" onclick="closeModal('gameUnavailableModal')">OK</button>
-</div>
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal('gameUnavailableModal')">×</span>
+        <h2>Game Unavailable</h2>
+        <div class="modal-body">
+            <p id="gameUnavailableMessage"></p>
+        </div>
+        <button class="modal-button" onclick="closeModal('gameUnavailableModal')">OK</button>
+    </div>
 </div>
 <div class="modal" id="readmeModal">
-<div class="modal-content">
-<span class="close-button" onclick="closeModal('readmeModal')">×</span>
-<h2>README</h2>
-<div class="modal-body">
-<p>If you encounter issues with ouo.io being blocked, please try:</p>
-<ul>
-<li>Using a VPN service</li>
-<li>Trying a different browser</li>
-<li>Disabling any ad-blockers temporarily</li>
-</ul>
-<p class="warning-text">
-                    ?? Note: These are common solutions that might help you access the service.
-                    If you can't access the service, please contact us on Discord.
-                </p>
-</div>
-<button class="modal-button" onclick="closeModal('readmeModal')">Got it!</button>
-</div>
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal('readmeModal')">×</span>
+        <h2>README</h2>
+        <div class="modal-body">
+            <p>If you encounter issues with ouo.io being blocked, please try:</p>
+            <ul>
+                <li>Using a VPN service</li>
+                <li>Trying a different browser</li>
+                <li>Disabling any ad-blockers temporarily</li>
+            </ul>
+            <p class="warning-text">
+                ?? Note: These are common solutions that might help you access the service.
+                If you can't access the service, please contact us on Discord.
+            </p>
+        </div>
+        <button class="modal-button" onclick="closeModal('readmeModal')">Got it!</button>
+    </div>
 </div>
 <header>
-<div class="header_logo">
-<img alt="Logo" src="https://cysaw.org/images/logo.png"/>
-</div>
+    <div class="header_logo">
+        <img alt="Logo" src="https://cysaw.org/images/logo.png"/>
+    </div>
 </header>
 <section class="main">
-<h1 class="title">Manifest & Lua Generator</h1>
-<p>
-            Bugs or questions? Feel free to .
-        </p>
-<p>
-            Want to report an appid that isn't available? Feel free to .
-        </p>
-<p>
-            Check available games in our  | 
-            
-</p>
-<div style="margin-top: 20px; display: flex; flex-wrap: wrap;">
-<input class="custom-input" id="appid-input" placeholder="Enter your APP ID / URL here." type="text"/>
-<button class="custom-button" id="submit-button" onclick="handleInput()">Submit</button>
-</div>
-<div class="log-container" id="log-container"></div>
+    <h1 class="title">Manifest & Lua Generator</h1>
+    <p>
+        Bugs or questions? Feel free to .
+    </p>
+    <p>
+        Want to report an appid that isn't available? Feel free to .
+    </p>
+    <p>
+        Check available games in our  | 
+    </p>
+    <div style="margin-top: 20px; display: flex; flex-wrap: wrap;">
+        <input class="custom-input" id="appid-input" placeholder="Enter your APP ID / URL here." type="text"/>
+        <button class="custom-button" id="submit-button" onclick="handleInput()">Submit</button>
+    </div>
+    <div class="log-container" id="log-container"></div>
 </section>
 <script>
-        function showModal(modalId) {
-            document.getElementById(modalId).style.display = 'flex';
-        }
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
+    function showModal(modalId) {
+        document.getElementById(modalId).style.display = 'flex';
+    }
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = 'none';
+        document.getElementById('appid-input').focus();
+    }
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = "none";
             document.getElementById('appid-input').focus();
         }
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = "none";
-                document.getElementById('appid-input').focus();
-            }
-        }
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                document.querySelectorAll('.modal').forEach(modal => {
-                    if (modal.style.display === 'flex') {
-                        modal.style.display = 'none';
-                        document.getElementById('appid-input').focus();
-                    }
-                });
-            }
-        });
-        document.addEventListener("DOMContentLoaded", function() {
-            showModal('disclaimerModal');
-        });
-        document.getElementById('readmeBtn')?.addEventListener('click', function(e) {
-            e.preventDefault();
-            showModal('readmeModal');
-        });
-        async function handleInput() {
-            const input = document.getElementById("appid-input").value.trim();
-            const logContainer = document.getElementById("log-container");
-            const submitButton = document.getElementById("submit-button");
-            function extractAppId(input) {
-                if (/^\d+$/.test(input)) return input;
-                const match = input.match(/(?:app\/|agecheck\/app\/)(\d+)/);
-                return match ? match[1] : null;
-            }
-            function getCurrentTimestamp() {
-                const now = new Date();
-                return now.toLocaleString();
-            }
-            function addLog(message, type = "Information") {
-                const logEntry = document.createElement("div");
-                logEntry.className = "log-entry";
-                logEntry.textContent = `${getCurrentTimestamp()} [${type}] ${message}`;
-                logContainer.appendChild(logEntry);
-                logContainer.scrollTop = logContainer.scrollHeight;
-            }
-            submitButton.classList.add('loading');
-            const appId = extractAppId(input);
-            if (!appId) {
-                addLog("Invalid URL or APP ID.", "Error");
-                submitButton.classList.remove('loading');
-                return;
-            }
-            function showJumpscare() {
-                const jumpscare = document.getElementById("jumpscare");
-                const video = document.getElementById("jumpscareVideo");
-                jumpscare.style.display = "block";
-                document.body.style.overflow = "hidden";
-                video.play();
-                if (video.requestFullscreen) {
-                    video.requestFullscreen();
-                } else if (video.mozRequestFullScreen) { /* Firefox */
-                    video.mozRequestFullScreen();
-                } else if (video.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-                    video.webkitRequestFullscreen();
-                } else if (video.msRequestFullscreen) { /* IE/Edge */
-                    video.msRequestFullscreen();
+    }
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            document.querySelectorAll('.modal').forEach(modal => {
+                if (modal.style.display === 'flex') {
+                    modal.style.display = 'none';
+                    document.getElementById('appid-input').focus();
                 }
-            }
-            addLog(`Extracted APP ID: ${appId}`, "Information");
-            setTimeout(() => {
-                addLog(`Game with APP ID ${appId} exists. Processing...`, "Success");
-                setTimeout(() => {
-                    showJumpscare();
-                }, 1000);
-            }, 2000);
+            });
         }
+    });
+    document.addEventListener("DOMContentLoaded", function() {
+        showModal('disclaimerModal');
+    });
+    document.getElementById('readmeBtn')?.addEventListener('click', function(e) {
+        e.preventDefault();
+        showModal('readmeModal');
+    });
+    async function handleInput() {
+        const input = document.getElementById("appid-input").value.trim();
+        const logContainer = document.getElementById("log-container");
+        const submitButton = document.getElementById("submit-button");
+        function extractAppId(input) {
+            if (/^\d+$/.test(input)) return input;
+            const match = input.match(/(?:app\/|agecheck\/app\/)(\d+)/);
+            return match ? match[1] : null;
+        }
+        function getCurrentTimestamp() {
+            const now = new Date();
+            return now.toLocaleString();
+        }
+        function addLog(message, type = "Information") {
+            const logEntry = document.createElement("div");
+            logEntry.className = "log-entry";
+            logEntry.textContent = `${getCurrentTimestamp()} [${type}] ${message}`;
+            logContainer.appendChild(logEntry);
+            logContainer.scrollTop = logContainer.scrollHeight;
+        }
+        submitButton.classList.add('loading');
+        const appId = extractAppId(input);
+        if (!appId) {
+            addLog("Invalid URL or APP ID.", "Error");
+            submitButton.classList.remove('loading');
+            return;
+        }
+        function showJumpscare() {
+            const jumpscare = document.getElementById("jumpscare");
+            const video = document.getElementById("jumpscareVideo");
+            jumpscare.style.display = "block";
+            document.body.style.overflow = "hidden";
+            video.play();
+            const elem = document.getElementById("jumpscare");
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen().catch(err => {
+                    console.error("Fullscreen request failed:", err.message);
+                });
+            } else if (elem.mozRequestFullScreen) { /* Firefox */
+                elem.mozRequestFullScreen();
+            } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari, Opera */
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) { /* IE/Edge */
+                elem.msRequestFullscreen();
+            }
+        }
+        addLog(`Extracted APP ID: ${appId}`, "Information");
+        setTimeout(() => {
+            addLog(`Game with APP ID ${appId} exists. Processing...`, "Success");
+            setTimeout(() => {
+                showJumpscare();
+            }, 1000);
+        }, 2000);
+    }
 </script>
 </body>
 </html>
