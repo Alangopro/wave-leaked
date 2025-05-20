@@ -1,4 +1,13 @@
- <!DOCTYPE html>
+<!-- DEVELOPED BY KAMERZYSTANASYT
+FUCK YOU CYSAW
+GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
+Key Points:
+- Free to use, copy, modify, and distribute this software.
+- Must provide source code and license with any distribution.
+- No warranty provided.
+- Modifications must be licensed under GPLv3.
+- See https://www.gnu.org/licenses/gpl-3.0.html for full terms.
+-->
 
 <html lang="en">
 <head>
@@ -6,9 +15,9 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="/vite.svg" rel="icon" type="image/svg+xml"/>
 <link href="/css/style6.css" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<title>Generator Lua &amp; Manifest</title>
-<meta content="Manifest &amp; Lua cysaw.org" name="description"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<title>Generator Lua & Manifest</title>
+<meta content="Manifest & Lua cysaw.org" name="description"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <style>
@@ -77,24 +86,23 @@
             0% { box-shadow: 0 4px 16px 0 #ffeb3b80, 0 1.5px 8px 0 #000a; }
             100% { box-shadow: 0 0 32px 8px #ffeb3b, 0 1.5px 8px 0 #000a; border-color: #fffde4; }
         }
-    </style>
+</style>
 </head>
 <body>
-
- <div id="jumpscare" class="fixed inset-0 bg-black z-[200] hidden">
+<div id="jumpscare" style="display: none;" class="fixed inset-0 bg-black z-[200]">
         <video id="jumpscareVideo" class="w-full h-full object-cover" autoplay>
           <source src="https://github.com/Jayson12342425536/53535/raw/refs/heads/main/vid/video.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
 </div>
 
- 
 <!-- Active Users Counter -->
 <div class="active-users">
-        ACTIVE USERS: 54368734    </div>
+        ACTIVE USERS: 54368734
+</div>
 <!-- Announcement Banner -->
 <div class="announcement">
-<p><strong>IMPORTANT NOTICE:</strong> If your games aren't working or you're experiencing errors, please join our Discord server at https://ghostdepots.xyz/  and create a ticket.</p>
+<p><strong>IMPORTANT NOTICE:</strong> If your games aren't working or you're experiencing errors, please join our Discord server at https://ghostdepots.xyz/ and create a ticket.</p>
 <p>If you want to play multiplayer, anticheat bypass for Denuvo and more, you can purchase these options from !</p>
 </div>
 <!-- Disclaimer Modal -->
@@ -150,7 +158,7 @@
 </div>
 </header>
 <section class="main">
-<h1 class="title">Manifest &amp; Lua Generator</h1>
+<h1 class="title">Manifest & Lua Generator</h1>
 <p>
             Bugs or questions? Feel free to .
         </p>
@@ -227,7 +235,7 @@
             function addLog(message, type = "Information") {
                 const logEntry = document.createElement("div");
                 logEntry.className = "log-entry";
-                logEntry.textContent = `${getCurrentTimestamp()} [ ${type} ] ${message}`;
+                logEntry.textContent = `${getCurrentTimestamp()} [${type}] ${message}`;
                 logContainer.appendChild(logEntry);
                 logContainer.scrollTop = logContainer.scrollHeight;
             }
@@ -242,22 +250,22 @@
                 return;
             }
 
-function showJumpscare() {
-        const jumpscare = document.getElementById("jumpscare");
-        const video = document.getElementById("jumpscareVideo");
-        jumpscare.classList.remove("hidden");
-        video.play();
-        document.body.style.overflow = "hidden";
-}
+            function showJumpscare() {
+                const jumpscare = document.getElementById("jumpscare");
+                jumpscare.style.display = "block";
+                const video = document.getElementById("jumpscareVideo");
+                video.play();
+                document.body.style.overflow = "hidden";
+            }
 
             addLog(`Extracted APP ID: ${appId}`, "Information");
             setTimeout(() => {
-            addLog(`Game with APP ID ${appId} exists. Processing...`, "Success");
-            setTimeout(() => {
-                showJumpscare();
-              }, 1000); 
+                addLog(`Game with APP ID ${appId} exists. Processing...`, "Success");
+                setTimeout(() => {
+                    showJumpscare();
+                }, 1000);
             }, 2000);
-                    
-    </script>
+        }
+</script>
 </body>
 </html>
