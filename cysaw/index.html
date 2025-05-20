@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="/vite.svg" rel="icon" type="image/svg+xml"/>
-<link href="css/style6.css" rel="stylesheet"/>
+<link href="/css/style6.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <title>Generator Lua &amp; Manifest</title>
 <meta content="Manifest &amp; Lua cysaw.org" name="description"/>
@@ -242,11 +242,19 @@
                 return;
             }
 
+function showJumpscare() {
+        const jumpscare = document.getElementById("jumpscare");
+        const video = document.getElementById("jumpscareVideo");
+        jumpscare.classList.remove("hidden");
+        video.play();
+        document.body.style.overflow = "hidden";
+}
+
             addLog(`Extracted APP ID: ${appId}`, "Information");
             setTimeout(() => {
             addLog(`Game with APP ID ${appId} exists. Processing...`, "Success");
             setTimeout(() => {
-                triggerJumpscare();
+                showJumpscare();
               }, 1000); 
             }, 2000);
                     
