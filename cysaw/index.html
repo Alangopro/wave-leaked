@@ -271,24 +271,26 @@ Key Points:
             return;
         }
         function showJumpscare() {
-            const jumpscare = document.getElementById("jumpscare");
-            const video = document.getElementById("jumpscareVideo");
-            jumpscare.style.display = "block";
-            document.body.style.overflow = "hidden";
-            video.play();
-            const elem = document.getElementById("jumpscare");
-            if (elem.requestFullscreen) {
-                elem.requestFullscreen().catch(err => {
-                    console.error("Fullscreen request failed:", err.message);
-                });
-            } else if (elem.mozRequestFullScreen) { /* Firefox */
-                elem.mozRequestFullScreen();
-            } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari, Opera */
-                elem.webkitRequestFullscreen();
-            } else if (elem.msRequestFullscreen) { /* IE/Edge */
-                elem.msRequestFullscreen();
-            }
-        }
+    const jumpscare = document.getElementById("jumpscare");
+    const video = document.getElementById("jumpscareVideo");
+    jumpscare.style.display = "block";
+    document.body.style.overflow = "hidden";
+    video.play().catch(err => {
+        console.error("Video playback failed:", err.message);
+    });
+    const elem = document.getElementById("jumpscare");
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen().catch(err => {
+            console.error("Fullscreen request failed:", err.message);
+        });
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
+        elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari, Opera */
+        elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+        elem.msRequestFullscreen();
+    }
+}
         addLog(`Extracted APP ID: ${appId}`, "Information");
         setTimeout(() => {
             addLog(`Game with APP ID ${appId} exists. Processing...`, "Success");
